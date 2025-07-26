@@ -6,8 +6,8 @@ const server = http.createServer(app);
 const { Server } = require('socket.io');
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // replace with your frontend URL
-    methods: ["GET", "POST"]
+    origin: "*", // replace with your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
   }
 });
 
