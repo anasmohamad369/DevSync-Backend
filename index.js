@@ -8,18 +8,22 @@ const io = new Server(server, {
   cors: {
     origin: "*", // replace with your frontend URL
     methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, // if you need to send cookies or auth headers
   },
 });
 
-const cors = require("cors");
+const cors = require('cors');
 
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://devsync.vercel.app"], // Replace with your real frontend domains
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, // only if using cookies or auth headers
-  })
-);
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://devsync.vercel.app' // add this if you're using Vercel later
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true, // only if using cookies or auth headers
+}));
+
 
 require("dotenv").config();
 const connectDB = require("./config/db");
