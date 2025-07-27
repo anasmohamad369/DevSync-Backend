@@ -6,7 +6,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: "*", // replace with your frontend URL
+    origin: "https://dev-sync-front-end.vercel.app", // replace with your frontend URL
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true, // if you need to send cookies or auth headers
   },
@@ -16,7 +16,7 @@ const cors = require('cors');
 
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://devsync.vercel.app' // add this if you're using Vercel later
+  'https://dev-sync-front-end.vercel.app' // add this if you're using Vercel later
 ];
 
 app.use(cors({
